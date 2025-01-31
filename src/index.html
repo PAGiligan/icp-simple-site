@@ -1,55 +1,77 @@
 <center>
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Giant Number Landing Page</title>
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                background: linear-gradient(120deg, #89f7fe, #66a6ff);
-                font-family: 'Arial', sans-serif;
-                color: #fff;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giant Number Landing Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+        .number-container {
+            text-align: center;
+            border: 2px solid #fff;
+            border-radius: 15px;
+            padding: 20px 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+        }
+        .number {
+            font-size: 100px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .input-container {
+            margin-top: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            font-size: 24px;
+            width: 200px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="number-container">
+        <div class="number" id="giantNumber">12345</div>
+        <div class="input-container">
+            <input type="number" id="numberInput" placeholder="Change the number" />
+            <button id="changeNumberBtn">Update</button>
+        </div>
+    </div>
+
+    <script>
+        const numberInput = document.getElementById('numberInput');
+        const giantNumber = document.getElementById('giantNumber');
+        const changeNumberBtn = document.getElementById('changeNumberBtn');
+
+        changeNumberBtn.addEventListener('click', () => {
+            const newValue = numberInput.value;
+            if (newValue) {
+                giantNumber.textContent = newValue;
+                numberInput.value = ''; // Clear the input field
             }
-            .number-container {
-                text-align: center;
-                border: 2px solid #fff;
-                border-radius: 15px;
-                padding: 20px 40px;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-                background-color: rgba(255, 255, 255, 0.1);
-                transition: transform 0.3s;
-            }
-            .number {
-                font-size: 100px;
-                font-weight: bold;
-                animation: pulse 2s infinite;
-            }
-            @keyframes pulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.1); }
-                100% { transform: scale(1); }
-            }
-            .input-container {
-                margin-top: 20px;
-            }
-            input[type="number"] {
-                padding: 10px;
-                font-size: 24px;
-                width: 200px;
-                border-radius: 5px;
-                border: none;
-                outline: none;
-            }
-        </style>
-    </head>
-    <body>
-    
-        <div class="number-container">
-            <div class="
+        });
+    </script>
+
+</body>
+</html>
 </center>
